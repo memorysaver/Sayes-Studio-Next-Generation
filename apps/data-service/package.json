@@ -3,13 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev --x-remote-bindings",
-    "start": "wrangler dev",
-    "test": "vitest",
-    "cf-typegen": "wrangler types --env-interface BaseEnv"
+    "deploy": "run-wrangler-deploy",
+    "dev": "run-wrangler-dev --x-remote-bindings",
+    "start": "run-wrangler-dev",
+    "test": "run-vitest",
+    "fix:workers-types": "run-wrangler-types",
+    "check:lint": "run-eslint",
+    "check:types": "run-tsc"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tools": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@cloudflare/vitest-pool-workers": "^0.8.19",
     "@types/node": "^22.15.19",
     "typescript": "^5.5.2",

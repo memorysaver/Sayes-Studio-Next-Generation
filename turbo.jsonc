@@ -21,7 +21,6 @@
 		"dev": {
 			"cache": false,
 			"dependsOn": ["build", "topo"],
-			"interactive": true,
 			"persistent": true,
 			"outputLogs": "new-only"
 		},

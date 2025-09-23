@@ -3,13 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
-    "preview": "vite preview",
-    "build": "vite build",
-    "deploy": "pnpm run build && wrangler deploy",
-    "serve": "vite preview",
-    "cf-typegen": "wrangler types --env-interface Env",
-    "test": "vitest run"
+    "dev": "run-vite-dev --port 3000",
+    "preview": "run-vite-preview",
+    "build": "run-vite-build",
+    "deploy": "run-wrangler-deploy",
+    "serve": "run-vite-preview",
+    "fix:workers-types": "run-wrangler-types",
+    "test": "run-vitest",
+    "check:lint": "run-eslint",
+    "check:types": "run-tsc"
   },
   "dependencies": {
     "@polar-sh/sdk": "^0.34.13",
@@ -43,6 +45,9 @@
     "zod": "^4.1.0"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tools": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@cloudflare/vite-plugin": "^1.13.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
