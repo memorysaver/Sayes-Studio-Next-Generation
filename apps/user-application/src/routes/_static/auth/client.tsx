@@ -1,111 +1,97 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import {
-  PageTitle,
-  InfoSection,
-  CodeBlock,
-  StepCard,
-  Callout,
-} from "@/components/kit-content";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
 
-export const Route = createFileRoute("/_static/auth/client")({
-  component: RouteComponent,
-});
+import { Callout, CodeBlock, InfoSection, PageTitle, StepCard } from '@/components/kit-content'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+
+export const Route = createFileRoute('/_static/auth/client')({
+	component: RouteComponent,
+})
 
 function RouteComponent() {
-  const [activeTab, setActiveTab] = useState("client-side");
-  return (
-    <main className="pt-20 pb-16 mt-6">
-      <div className="container mx-auto max-w-4xl px-4">
-        <PageTitle
-          badge="Client Guide"
-          title="Better Auth Client Integration"
-          subtitle="Implement secure authentication on the client side with React hooks"
-        />
+	const [activeTab, setActiveTab] = useState('client-side')
+	return (
+		<main className="pt-20 pb-16 mt-6">
+			<div className="container mx-auto max-w-4xl px-4">
+				<PageTitle
+					badge="Client Guide"
+					title="Better Auth Client Integration"
+					subtitle="Implement secure authentication on the client side with React hooks"
+				/>
 
-        <InfoSection title="Overview">
-          <p>
-            The Better Auth React client provides a seamless integration for
-            managing authentication state in your React application. It offers
-            type-safe hooks, automatic session management, and optimized caching
-            for a smooth user experience.
-          </p>
-          <p>The client-side integration includes:</p>
-          <ul className="list-disc pl-6 mt-4 space-y-2">
-            <li>
-              <strong>React Hooks</strong> - useSession and other authentication
-              hooks
-            </li>
-            <li>
-              <strong>Automatic Session Management</strong> - Handles token
-              refresh and session validation
-            </li>
-            <li>
-              <strong>Social Authentication</strong> - Streamlined OAuth flows
-              with redirect handling
-            </li>
-            <li>
-              <strong>Route Protection</strong> - Easy implementation of
-              authenticated routes
-            </li>
-            <li>
-              <strong>TypeScript Support</strong> - Full type safety for user
-              data and session state
-            </li>
-          </ul>
-        </InfoSection>
+				<InfoSection title="Overview">
+					<p>
+						The Better Auth React client provides a seamless integration for managing authentication
+						state in your React application. It offers type-safe hooks, automatic session
+						management, and optimized caching for a smooth user experience.
+					</p>
+					<p>The client-side integration includes:</p>
+					<ul className="list-disc pl-6 mt-4 space-y-2">
+						<li>
+							<strong>React Hooks</strong> - useSession and other authentication hooks
+						</li>
+						<li>
+							<strong>Automatic Session Management</strong> - Handles token refresh and session
+							validation
+						</li>
+						<li>
+							<strong>Social Authentication</strong> - Streamlined OAuth flows with redirect
+							handling
+						</li>
+						<li>
+							<strong>Route Protection</strong> - Easy implementation of authenticated routes
+						</li>
+						<li>
+							<strong>TypeScript Support</strong> - Full type safety for user data and session state
+						</li>
+					</ul>
+				</InfoSection>
 
-        <StepCard step={1} title="Setting up the Better Auth React Client">
-          <p>
-            Create a Better Auth client instance that communicates with your
-            backend authentication endpoints. This client provides React hooks
-            and methods for managing authentication state throughout your
-            application.
-          </p>
-          <p className="mt-3">
-            The client automatically handles session management, token refresh,
-            and provides optimized caching for authentication state.
-          </p>
+				<StepCard step={1} title="Setting up the Better Auth React Client">
+					<p>
+						Create a Better Auth client instance that communicates with your backend authentication
+						endpoints. This client provides React hooks and methods for managing authentication
+						state throughout your application.
+					</p>
+					<p className="mt-3">
+						The client automatically handles session management, token refresh, and provides
+						optimized caching for authentication state.
+					</p>
 
-          <CodeBlock
-            language="typescript"
-            code={`import { createAuthClient } from "better-auth/react";
+					<CodeBlock
+						language="typescript"
+						code={`import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient();`}
-            filename="src/components/auth/client.ts"
-          />
+						filename="src/components/auth/client.ts"
+					/>
 
-          <Callout type="info">
-            <p>
-              <strong>Automatic Configuration:</strong> The client automatically
-              detects the base URL and configures endpoints based on your server
-              setup. For custom configurations, you can pass options like{" "}
-              <code>baseURL</code> to override defaults.
-            </p>
-          </Callout>
-        </StepCard>
+					<Callout type="info">
+						<p>
+							<strong>Automatic Configuration:</strong> The client automatically detects the base
+							URL and configures endpoints based on your server setup. For custom configurations,
+							you can pass options like <code>baseURL</code> to override defaults.
+						</p>
+					</Callout>
+				</StepCard>
 
-        <StepCard step={2} title="Implementing Login and Logout Components">
-          <p>
-            Better Auth provides simple methods for social authentication and
-            session management. The login component handles OAuth flows while
-            the logout functionality can be integrated into user account
-            interfaces.
-          </p>
+				<StepCard step={2} title="Implementing Login and Logout Components">
+					<p>
+						Better Auth provides simple methods for social authentication and session management.
+						The login component handles OAuth flows while the logout functionality can be integrated
+						into user account interfaces.
+					</p>
 
-          <div className="mt-4 space-y-6">
-            <div>
-              <h4 className="font-semibold  mb-3">
-                Google OAuth Login Component
-              </h4>
-              <p className="text-sm  mb-3">
-                The login component uses <code>authClient.signIn.social()</code>
-                to initiate OAuth flows with redirect handling.
-              </p>
-              <CodeBlock
-                language="typescript"
-                code={`import { Button } from "@/components/ui/button";
+					<div className="mt-4 space-y-6">
+						<div>
+							<h4 className="font-semibold  mb-3">Google OAuth Login Component</h4>
+							<p className="text-sm  mb-3">
+								The login component uses <code>authClient.signIn.social()</code>
+								to initiate OAuth flows with redirect handling.
+							</p>
+							<CodeBlock
+								language="typescript"
+								code={`import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -146,21 +132,19 @@ export function GoogleLogin() {
     </div>
   );
 }`}
-                filename="src/components/auth/google-login.tsx"
-              />
-            </div>
+								filename="src/components/auth/google-login.tsx"
+							/>
+						</div>
 
-            <div>
-              <h4 className="font-semibold  mb-3">
-                Account Dialog with Logout
-              </h4>
-              <p className="text-sm  mb-3">
-                The account dialog demonstrates session state management and
-                logout functionality using <code>useSession</code> hook.
-              </p>
-              <CodeBlock
-                language="typescript"
-                code={`import { Button } from "@/components/ui/button";
+						<div>
+							<h4 className="font-semibold  mb-3">Account Dialog with Logout</h4>
+							<p className="text-sm  mb-3">
+								The account dialog demonstrates session state management and logout functionality
+								using <code>useSession</code> hook.
+							</p>
+							<CodeBlock
+								language="typescript"
+								code={`import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Dialog,
@@ -240,42 +224,41 @@ export function AccountDialog({ children }: AccountDialogProps) {
     </Dialog>
   );
 }`}
-                filename="src/components/auth/account-dialog.tsx"
-              />
-            </div>
-          </div>
+								filename="src/components/auth/account-dialog.tsx"
+							/>
+						</div>
+					</div>
 
-          <Callout type="success">
-            <p>
-              <strong>Session Management:</strong> The <code>useSession</code>
-              hook automatically manages authentication state, handles token
-              refresh, and provides real-time updates when the session changes.
-            </p>
-          </Callout>
-        </StepCard>
+					<Callout type="success">
+						<p>
+							<strong>Session Management:</strong> The <code>useSession</code>
+							hook automatically manages authentication state, handles token refresh, and provides
+							real-time updates when the session changes.
+						</p>
+					</Callout>
+				</StepCard>
 
-        <StepCard step={3} title="Protecting Routes with Authentication">
-          <p>
-            Better Auth provides two approaches for route protection:
-            client-side authentication checks and server-side rendering (SSR)
-            protection. Both patterns ensure users must be authenticated to
-            access certain areas of your application.
-          </p>
-          <p className="mt-3">
-            Choose the appropriate method based on your security requirements
-            and user experience needs.
-          </p>
+				<StepCard step={3} title="Protecting Routes with Authentication">
+					<p>
+						Better Auth provides two approaches for route protection: client-side authentication
+						checks and server-side rendering (SSR) protection. Both patterns ensure users must be
+						authenticated to access certain areas of your application.
+					</p>
+					<p className="mt-3">
+						Choose the appropriate method based on your security requirements and user experience
+						needs.
+					</p>
 
-          <Tabs className="mt-4" value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="client-side">Client-side</TabsTrigger>
-              <TabsTrigger value="ssr">Server-side (SSR)</TabsTrigger>
-            </TabsList>
+					<Tabs className="mt-4" value={activeTab} onValueChange={setActiveTab}>
+						<TabsList className="grid w-full grid-cols-2">
+							<TabsTrigger value="client-side">Client-side</TabsTrigger>
+							<TabsTrigger value="ssr">Server-side (SSR)</TabsTrigger>
+						</TabsList>
 
-            <TabsContent value="client-side">
-              <CodeBlock
-                language="typescript"
-                code={`import { authClient } from "@/components/auth/client";
+						<TabsContent value="client-side">
+							<CodeBlock
+								language="typescript"
+								code={`import { authClient } from "@/components/auth/client";
 import { GoogleLogin } from "@/components/auth/google-login";
 import { Sidebar } from "@/components/common/sidebar";
 import { Header } from "@/components/common/header";
@@ -310,14 +293,14 @@ function RouteComponent() {
     </>
   );
 }`}
-                filename="src/routes/_authed/route.tsx"
-              />
-            </TabsContent>
+								filename="src/routes/_authed/route.tsx"
+							/>
+						</TabsContent>
 
-            <TabsContent value="ssr">
-              <CodeBlock
-                language="typescript"
-                code={`import { GoogleLogin } from "@/components/auth/google-login";
+						<TabsContent value="ssr">
+							<CodeBlock
+								language="typescript"
+								code={`import { GoogleLogin } from "@/components/auth/google-login";
 import { Header } from "@/components/common/header";
 import { Sidebar } from "@/components/common/sidebar";
 import { userSession } from "@/server/functions/auth";
@@ -353,86 +336,75 @@ function RouteComponent() {
     </>
   );
 }`}
-                filename="src/routes/_authed/route.tsx"
-              />
-            </TabsContent>
-          </Tabs>
+								filename="src/routes/_authed/route.tsx"
+							/>
+						</TabsContent>
+					</Tabs>
 
-          <div className="mt-4 space-y-4">
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">
-                Key Differences Between Approaches
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <h5 className="font-medium text-foreground mb-2">
-                    Client-side
-                  </h5>
-                  <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
-                    <li>Authentication check happens in the browser</li>
-                    <li>Loading state while checking session</li>
-                    <li>Better for dynamic user experiences</li>
-                    <li>Requires handling pending states</li>
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="font-medium text-foreground mb-2">
-                    Server-side (SSR)
-                  </h5>
-                  <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
-                    <li>Authentication validated on server</li>
-                    <li>No loading state - immediate auth decision</li>
-                    <li>Better security and SEO</li>
-                    <li>
-                      Uses <code>beforeLoad</code> and error handling
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+					<div className="mt-4 space-y-4">
+						<div>
+							<h4 className="font-semibold text-foreground mb-2">
+								Key Differences Between Approaches
+							</h4>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+								<div>
+									<h5 className="font-medium text-foreground mb-2">Client-side</h5>
+									<ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+										<li>Authentication check happens in the browser</li>
+										<li>Loading state while checking session</li>
+										<li>Better for dynamic user experiences</li>
+										<li>Requires handling pending states</li>
+									</ul>
+								</div>
+								<div>
+									<h5 className="font-medium text-foreground mb-2">Server-side (SSR)</h5>
+									<ul className="list-disc pl-4 space-y-1 text-muted-foreground">
+										<li>Authentication validated on server</li>
+										<li>No loading state - immediate auth decision</li>
+										<li>Better security and SEO</li>
+										<li>
+											Uses <code>beforeLoad</code> and error handling
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">
-                Layout Components
-              </h4>
-              <ul className="list-disc pl-6 space-y-1 text-sm text-muted-foreground">
-                <li>
-                  <code>&lt;Sidebar /&gt;</code> - Navigation component with
-                  user profile
-                </li>
-                <li>
-                  <code>&lt;Header /&gt;</code> - Top bar with notifications and
-                  sign out
-                </li>
-                <li>
-                  <code>&lt;Outlet /&gt;</code> - Renders child routes within
-                  the layout
-                </li>
-              </ul>
-            </div>
-          </div>
+						<div>
+							<h4 className="font-semibold text-foreground mb-2">Layout Components</h4>
+							<ul className="list-disc pl-6 space-y-1 text-sm text-muted-foreground">
+								<li>
+									<code>&lt;Sidebar /&gt;</code> - Navigation component with user profile
+								</li>
+								<li>
+									<code>&lt;Header /&gt;</code> - Top bar with notifications and sign out
+								</li>
+								<li>
+									<code>&lt;Outlet /&gt;</code> - Renders child routes within the layout
+								</li>
+							</ul>
+						</div>
+					</div>
 
-          <Callout type="warning">
-            <p>
-              <strong>Important Notes:</strong> All routes under{" "}
-              <code>/_authed</code> will automatically inherit authentication
-              protection. For SSR logout functionality, you'll need additional
-              logic to redirect or refresh the page after sign out, as the
-              server-side session validation won't automatically re-run.
-            </p>
-          </Callout>
-        </StepCard>
+					<Callout type="warning">
+						<p>
+							<strong>Important Notes:</strong> All routes under <code>/_authed</code> will
+							automatically inherit authentication protection. For SSR logout functionality, you'll
+							need additional logic to redirect or refresh the page after sign out, as the
+							server-side session validation won't automatically re-run.
+						</p>
+					</Callout>
+				</StepCard>
 
-        <Callout type="success">
-          <p>
-            <strong>Client Integration Complete!</strong> Your React application
-            now has a fully integrated authentication system with social login,
-            session management, and route protection. Users can seamlessly sign
-            in, access protected content, and manage their accounts with a
-            polished user experience.
-          </p>
-        </Callout>
-      </div>
-    </main>
-  );
+				<Callout type="success">
+					<p>
+						<strong>Client Integration Complete!</strong> Your React application now has a fully
+						integrated authentication system with social login, session management, and route
+						protection. Users can seamlessly sign in, access protected content, and manage their
+						accounts with a polished user experience.
+					</p>
+				</Callout>
+			</div>
+		</main>
+	)
 }

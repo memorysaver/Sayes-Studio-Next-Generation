@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { HomePage } from "@/components/kit-content/home";
+import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute("/_static/")({
-  component: HomePage,
-});
+import { HomePage } from '@/components/kit-content/home'
+
+export const Route = createFileRoute('/_static/')({
+	component: HomePage,
+})

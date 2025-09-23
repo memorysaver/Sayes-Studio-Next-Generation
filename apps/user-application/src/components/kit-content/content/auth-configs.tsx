@@ -1,38 +1,38 @@
 export const authEnvConfigs = {
-  postgresql: {
-    label: "PostgreSQL",
-    code: `# Auth Environment Variables
+	postgresql: {
+		label: 'PostgreSQL',
+		code: `# Auth Environment Variables
 BETTER_AUTH_SECRET="your-secret-key-here"
 
 # Google OAuth (optional)
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"`,
-  },
-  mysql: {
-    label: "MySQL",
-    code: `# Auth Environment Variables
+	},
+	mysql: {
+		label: 'MySQL',
+		code: `# Auth Environment Variables
 BETTER_AUTH_SECRET="your-secret-key-here"
 
 # Google OAuth (optional)
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"`,
-  },
-  cloudflare_d1: {
-    label: "Cloudflare D1",
-    code: `# Auth Environment Variables
+	},
+	cloudflare_d1: {
+		label: 'Cloudflare D1',
+		code: `# Auth Environment Variables
 BETTER_AUTH_SECRET="your-secret-key-here"
 
 # Google OAuth (optional)
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
 `,
-  },
-};
+	},
+}
 
 export const betterAuthCliConfigs = {
-  postgresql: {
-    label: "PostgreSQL",
-    code: `import { createBetterAuth } from "../src/auth/setup";
+	postgresql: {
+		label: 'PostgreSQL',
+		code: `import { createBetterAuth } from "../src/auth/setup";
 import { initDatabase } from "../src/database/setup";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
@@ -48,10 +48,10 @@ export const auth = createBetterAuth({
     },
   ),
 });`,
-  },
-  mysql: {
-    label: "MySQL",
-    code: `import { createBetterAuth } from "../src/auth/setup";
+	},
+	mysql: {
+		label: 'MySQL',
+		code: `import { createBetterAuth } from "../src/auth/setup";
 import { initDatabase } from "../src/database/setup";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
@@ -67,10 +67,10 @@ export const auth = createBetterAuth({
     },
   ),
 });`,
-  },
-  cloudflare_d1: {
-    label: "Cloudflare D1",
-    code: `import { createBetterAuth } from "../src/auth/setup";
+	},
+	cloudflare_d1: {
+		label: 'Cloudflare D1',
+		code: `import { createBetterAuth } from "../src/auth/setup";
 import Database from "better-sqlite3";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
@@ -80,13 +80,13 @@ export const auth = createBetterAuth({
     provider: "sqlite",
   }),
 });`,
-  },
-};
+	},
+}
 
 export const runtimeAuthConfigs = {
-  postgresql: {
-    label: "PostgreSQL Runtime Setup",
-    code: `// In your server.ts file
+	postgresql: {
+		label: 'PostgreSQL Runtime Setup',
+		code: `// In your server.ts file
 import { initDatabase } from "@repo/data-ops/database/setup";
 import { setAuth } from "@repo/data-ops/auth/server";
 
@@ -115,10 +115,10 @@ export default {
     return fetch(request);
   },
 };`,
-  },
-  mysql: {
-    label: "MySQL Runtime Setup",
-    code: `// In your server.ts file
+	},
+	mysql: {
+		label: 'MySQL Runtime Setup',
+		code: `// In your server.ts file
 import { initDatabase } from "@repo/data-ops/database/setup";
 import { setAuth } from "@repo/data-ops/auth/server";
 
@@ -147,10 +147,10 @@ export default {
     return fetch(request);
   },
 };`,
-  },
-  cloudflare_d1: {
-    label: "Cloudflare D1 Runtime Setup",
-    code: `// In your server.ts file (for Cloudflare Workers)
+	},
+	cloudflare_d1: {
+		label: 'Cloudflare D1 Runtime Setup',
+		code: `// In your server.ts file (for Cloudflare Workers)
 import { initDatabase } from "@repo/data-ops/database/setup";
 import { setAuth } from "@repo/data-ops/auth/server";
 
@@ -175,5 +175,5 @@ export default {
     return fetch(request);
   },
 };`,
-  },
-};
+	},
+}
