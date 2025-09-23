@@ -1,14 +1,12 @@
 import { createServerFileRoute } from '@tanstack/react-start/server'
 
-import { getAuth } from '@repo/data-ops/auth/server'
-
 export const ServerRoute = createServerFileRoute('/api/auth/$').methods({
-	GET: ({ request }) => {
+	GET: ({ request: _request }) => {
 		// const auth = getAuth();
 		// return auth.handler(request);
 		return new Response('Not implemented', { status: 501 })
 	},
-	POST: ({ request }) => {
+	POST: ({ request: _request }) => {
 		// const auth = getAuth();
 		// return auth.handler(request);
 		return new Response('Not implemented', { status: 501 })

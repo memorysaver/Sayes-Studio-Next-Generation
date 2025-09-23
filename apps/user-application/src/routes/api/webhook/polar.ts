@@ -1,8 +1,9 @@
-import { Subscription } from '@polar-sh/sdk/models/components/subscription.js'
 import { Webhooks } from '@polar-sh/tanstack-start'
 // import { updateSubscription } from "@repo/data-ops/queries/polar";
 import { createServerFileRoute } from '@tanstack/react-start/server'
 import { env } from 'cloudflare:workers'
+
+import type { Subscription } from '@polar-sh/sdk/models/components/subscription.js'
 
 async function handleSubscription(payload: { data: Subscription }) {
 	const { data } = payload

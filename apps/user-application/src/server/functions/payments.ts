@@ -61,7 +61,7 @@ export const validPayment = baseFunction
 		return false
 	})
 
-export const collectSubscription = baseFunction.handler(async (ctx) => {
+export const collectSubscription = baseFunction.handler(async (_ctx) => {
 	// const subscription = await ctx.context.polar.subscriptions.list({
 	//   externalCustomerId: ctx.context.userId,
 	// });
@@ -84,7 +84,7 @@ export const collectSubscription = baseFunction.handler(async (ctx) => {
 	return {} as any
 })
 
-export const getUserSubscription = baseFunction.handler(async (ctx) => {
+export const getUserSubscription = baseFunction.handler(async (_ctx) => {
 	// const subscription = await getSubscription(ctx.context.userId);
 	// if (subscription.length === 0) {
 	//   return null;

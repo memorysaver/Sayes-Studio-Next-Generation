@@ -1,4 +1,4 @@
-import { getProducts, getUserSubscription } from '@/server/functions/payments'
+import type { getProducts, getUserSubscription } from '@/server/functions/payments'
 
 export type Products = Awaited<ReturnType<typeof getProducts>>
 export type Product = Products[number]

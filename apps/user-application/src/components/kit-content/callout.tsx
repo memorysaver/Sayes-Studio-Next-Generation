@@ -1,7 +1,8 @@
 import { AlertTriangle, CheckCircle, Info, XCircle } from 'lucide-react'
-import { ReactNode } from 'react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+
+import type { ReactNode } from 'react'
 
 interface CalloutProps {
 	type?: 'info' | 'warning' | 'success' | 'error'

@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-import { Price, Product, Subscription } from './types'
+import type { Price, Product, Subscription } from './types'
 
 interface PricingCardProps {
 	product: Product

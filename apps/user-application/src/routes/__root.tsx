@@ -1,5 +1,4 @@
 import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
-import { PropsWithChildren } from 'react'
 
 import { NotFoundPage } from '@/components/common/not-found-page'
 import { ThemeProvider, useTheme } from '@/components/theme-provider'
@@ -7,6 +6,7 @@ import { ThemeProvider, useTheme } from '@/components/theme-provider'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
+import type { PropsWithChildren } from 'react'
 
 export interface RouterContext {
 	queryClient: QueryClient
