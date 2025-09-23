@@ -6922,6 +6922,8 @@ declare namespace Rpc {
 }
 declare namespace Cloudflare {
     interface Env {
+        POLAR_SECRET: string;
+        POLAR_WEBHOOK_SECRET: string;
     }
 }
 declare module 'cloudflare:node' {
