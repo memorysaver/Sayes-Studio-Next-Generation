@@ -1,0 +1,11 @@
+{
+	"extends": "@repo/typescript-config/workers.json",
+	"compilerOptions": {
+		"types": ["./worker-configuration.d.ts", "./service-bindings.d.ts"],
+		"paths": {
+			"@/*": ["./src/*"],
+			"@/bindings": ["./service-bindings.d.ts"]
+		}
+	},
+	"include": ["worker-configuration.d.ts", "service-bindings.d.ts", "src/**/*.ts"]
+}

@@ -1,0 +1,29 @@
+{
+	"name": "data-service",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"check:lint": "run-eslint",
+		"check:types": "run-tsc",
+		"deploy": "run-wrangler-deploy",
+		"dev": "run-wrangler-dev --x-remote-bindings",
+		"fix:workers-types": "run-wrangler-types",
+		"start": "run-wrangler-dev",
+		"test": "run-vitest"
+	},
+	"dependencies": {
+		"@repo/data-ops": "workspace:*",
+		"hono": "4.9.7",
+		"zod": "4.1.8"
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-pool-workers": "0.9.1",
+		"@repo/eslint-config": "workspace:*",
+		"@repo/tools": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@types/node": "24.5.0",
+		"typescript": "5.9.2",
+		"vitest": "3.2.4",
+		"wrangler": "4.37.0"
+	}
+}

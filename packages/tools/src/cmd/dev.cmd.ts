@@ -34,6 +34,6 @@ export const devCmd = new Command('dev')
 			await $`pnpm dev ${args}`
 		} else {
 			const argsWithSeparator = args.length > 0 ? ['--', ...args] : args
-			await $`pnpm turbo dev ${argsWithSeparator}`
+			await $`pnpm turbo dev --filter="./apps/*" --ui=stream ${argsWithSeparator}`
 		}
 	})
